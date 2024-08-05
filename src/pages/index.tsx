@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head'; 
+import fs from 'fs';
+import path from 'path';
 import BannerImageComp from '../components/BannerImageComp';
 import EditBannerTemplateBs from '../components/EditBannerTemplateBs';
 import styles from '../styles/Home.module.css';
@@ -60,8 +62,9 @@ const HomePage: React.FC<HomePageProps> = ({ ads: initialAds }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/ads.json');
-  const ads = await res.json();
+  const adsFilePath = path.join(process.cwd(), 'public', 'ads.json');
+  const adsData = fs.readFileSync(adsFilePath, 'utf-8');
+  const ads = JSON.parse(adsData);
 
   return {
     props: {

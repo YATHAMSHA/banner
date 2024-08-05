@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from '../styles/BannerImageComp.module.css';
 
 interface BannerImageCompProps {
@@ -13,7 +14,7 @@ interface BannerImageCompProps {
 const BannerImageComp: React.FC<BannerImageCompProps> = ({ title, description, cta, image, background, onEdit }) => {
   return (
     <div className={styles.banner} style={{ background: background }}>
-      <img src={image} alt={title} className={styles.image} />
+      <Image src={image} alt={title} layout="responsive" width={500} height={300} className={styles.image} />
       <div className={styles.content}>
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.description}>{description}</p>
