@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { GetStaticProps } from 'next';
-import Head from 'next/head'; 
+import Head from 'next/head';
 import fs from 'fs';
 import path from 'path';
-import BannerImageComp from '../components/BannerImageComp';
-import EditBannerTemplateBs from '../components/EditBannerTemplateBs';
+import AdBanner from '../components/AdBanner';
+import BottomSheet from '../components/BottomSheet';
 import styles from '../styles/Home.module.css';
 
 interface HomePageProps {
@@ -36,11 +36,11 @@ const HomePage: React.FC<HomePageProps> = ({ ads: initialAds }) => {
     <div className={styles.container}>
       <Head>
         <title>Ad-Banner</title>
-        <link rel="icon" href="/images/favicon.jpg" /> 
+        <link rel="icon" href="/images/favicon.jpg" />
       </Head>
       <h1 className={styles.title}>Ad Banners</h1>
       {ads.map((ad, index) => (
-        <BannerImageComp
+        <AdBanner
           key={index}
           title={ad.title}
           description={ad.description}
@@ -51,7 +51,7 @@ const HomePage: React.FC<HomePageProps> = ({ ads: initialAds }) => {
         />
       ))}
       {editingAd && (
-        <EditBannerTemplateBs
+        <BottomSheet
           ad={editingAd}
           onSave={handleSave}
           onClose={() => setEditingAd(null)}
