@@ -1,9 +1,9 @@
-const isProd = process.env.NODE_ENV === 'production';
-
+// next.config.js
 module.exports = {
-  assetPrefix: isProd ? '/banner/' : '',
+  output: 'export',
   images: {
-    loader: 'akamai',
-    path: '',
+    unoptimized: true,
   },
+  basePath: '/banner',
+  assetPrefix: '/banner/'
 };

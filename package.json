@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://YATHAMSHA.github.io/banners",
+  "homepage": "https://YATHAMSHA.github.io/banner",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -28,3 +28,4 @@
     "typescript": "^5"
   }
 }
+
