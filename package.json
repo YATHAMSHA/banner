@@ -7,15 +7,14 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "predeploy": "npm run build && npm run export",
-    "deploy": "gh-pages -d out",
+    "deploy": "npm run build && npm run export && gh-pages -d out",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "^20",
